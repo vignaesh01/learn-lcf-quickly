@@ -1,0 +1,23 @@
+<aura:component controller="ContactListDemoCC" implements="force:lightningQuickAction,force:hasRecordId" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="message" type="String" default=""/>
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    {! v.message}
+    
+     <aura:attribute name="searchKey" type="String" default=""/>
+     <lightning:layout  multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:input name="input1" label="Filter by Name" value="{!v.searchKey}" placeholder="Enter your text"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:button label="Filter" title="Filter" onclick="{! c.filterContacts }"/>
+            </lightning:layoutItem>
+    </lightning:layout>
+    
+     <lightning:datatable
+                keyField="Id"
+                data="{! v.mydata }"
+                columns="{! v.mycolumns }"
+                hideCheckboxColumn="true"/>
+</aura:component>
