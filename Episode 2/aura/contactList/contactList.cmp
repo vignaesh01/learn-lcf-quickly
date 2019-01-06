@@ -1,0 +1,13 @@
+<aura:component controller="ContactListDemoCC" implements="force:lightningQuickAction,force:hasRecordId" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="message" type="String" default=""/>
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    {! v.message}
+    
+     <lightning:datatable
+                keyField="Id"
+                data="{! v.mydata }"
+                columns="{! v.mycolumns }"
+                hideCheckboxColumn="true"/>
+</aura:component>
